@@ -1,0 +1,23 @@
+{
+  "name": "fb_cmd",
+  "version": "1.0",
+  "description": "Stuff happens.",
+  "background_page": "background.html",
+  "content_scripts": [
+    {
+        "matches": ["http://facebook.com/*",
+                    "https://facebook.com/*",
+                    "http://*.facebook.com/*",
+                    "https://*.facebook.com/*"
+        ],
+        "js": ["jquery.js", "contentscript.js"]
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "http://facebook.com/*",
+    "https://facebook.com/*",
+    "http://*.facebook.com/*",
+    "https://*.facebook.com/*"
+  ]
+}
