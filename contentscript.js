@@ -12,7 +12,8 @@ jQuery(document).ready(function() {
 
   function processText(e) {
     console.log("Process text");
-    if (e.keyCode == 40) {
+    if (e.keyCode == 192) {
+      e.preventDefault();
       console.log("Registered enter.");
 
       var user = jQuery('[name=targetid]').val();
