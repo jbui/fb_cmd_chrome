@@ -1,13 +1,12 @@
-jQuery(document).ready(function() {
   console.log("Loaded extension");
   
-  var el = jQuery('.attachmentName').first();      // Update Status
-  el.bind("click", initiateSexyTime);
+  //var el = jQuery('.attachmentName').first();      // Update Status
+  //el.bind("click", initiateSexyTime);
 
-  function initiateSexyTime() {
-    var el = jQuery('[name=xhpc_message]');
-    el.bind('keydown', processText);
-  }
+  //function initiateSexyTime() {
+  var el = jQuery('[name=xhpc_message]');
+  el.on('keydown', processText);
+  //}
   // Ajax this shit to our server!
 
   function processText(e) {
@@ -30,5 +29,3 @@ jQuery(document).ready(function() {
     }
     
   }
-
-});
