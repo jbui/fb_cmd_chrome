@@ -3,9 +3,31 @@
     <script>
         chrome.extension.onRequest.addListener(
             function(request, sender, sendResponse) {
-                console.log(sender.tab ?
-                    "from a content script:" + sender.tab.url :
-                    "from the extension");
+
+
+                var query = request.value;
+                var arr = query.split(' ');
+                var redirect_url = 'http://www.facebook.com';
+                switch(arr[0])
+                {
+                case 'yelp':
+                  redirect_url = '/me';
+                  break;
+                case 'help':
+                  redirect_url = '/me';
+                  break;
+                case 'birthday':
+                  redirect_url = '/';
+                  break;
+                case 'location':
+                  redirect_url = '/';
+                  break;
+                case 'hangout':
+                  redirect_url = '/me';
+                  break;
+                default:
+                  redirect_url = '/';
+                }
                 var xhr = new XMLHttpRequest();
                 xhr.open("GET", "http://fbcmd.herokuapp.com/api?q="+request.value+"&uid="+request.user, true);
                 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
